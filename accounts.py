@@ -3,7 +3,7 @@ from parkinglot import ParkingLot
 from parkingfloor import ParkingFloor
 from parkingspace import ParkingSpace
 from parkingdisplayboard import ParkingDisplayBoard
-from payment import PaymentType
+from payment import PaymentType, Payment
 from vehicle import Vehicle
 from parkingticket import ParkingTicket
 
@@ -30,6 +30,15 @@ class Admin(Accounts):
         pass
 
 class ParkingAttendant(Accounts):
+    def __init__(self, name: str,
+                 email: str,
+                 password: str,
+                 employeeId: int,
+                 address: Address,
+                 payment: Payment):
+        super().__init__(name, email, password, employeeId, address)
+        self.payment = payment
+        
     def createTicket(self, vehicle: Vehicle) -> ParkingTicket:
         pass
 
