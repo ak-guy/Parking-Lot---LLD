@@ -1,0 +1,7 @@
+1. There should be multiple floors in a parking lot
+2. There should be multiple gates in a parking lot
+3. There should be a parking assistant at each gates
+4. The entry gate should create ticket
+5. The exit gate should process payment on hourly manner
+6. It should have parking facility for different types of vehicle
+7. There should be a display board on each floor showing details of vacant spots
