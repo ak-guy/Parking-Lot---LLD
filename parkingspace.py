@@ -1,9 +1,9 @@
 from vehicle import Vehicle
 
 class ParkingSpaceType:
-    TWOWHEELER = 1
-    FOURWHEELER = 2
-    SIXWHEELER = 3
+    BIKE_PARKING = 1
+    CAR_PARKING = 2
+    TRUCK_PARKING = 3
 
 class ParkingSpace:
     def __init__(self, spaceId: int,
