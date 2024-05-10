@@ -1,6 +1,11 @@
+from __future__ import annotations
 from enum import Enum
-from parkingticket import ParkingTicket
-from payment import PaymentInfo
+from typing import TYPE_CHECKING
+from exceptions import NotValidVehicleException
+
+if TYPE_CHECKING:
+    from parkingticket import ParkingTicket
+    from payment import PaymentInfo
 
 
 class VehicleType(Enum):
@@ -17,3 +22,9 @@ class Vehicle:
         self.vehicletype = vehicletype
         self.parkingticket = parkingticket
         self.paymentinfo = paymentinfo
+        self.validateVehicle()
+
+    def validateVehicle(self):
+        valid = True
+        if not valid:
+            raise NotValidVehicleException

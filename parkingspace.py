@@ -1,6 +1,11 @@
-from vehicle import Vehicle
+from __future__ import annotations
+from enum import Enum
+from typing import TYPE_CHECKING
 
-class ParkingSpaceType:
+if TYPE_CHECKING:
+    from vehicle import Vehicle
+
+class ParkingSpaceType(Enum):
     BIKE_PARKING = 1
     CAR_PARKING = 2
     TRUCK_PARKING = 3

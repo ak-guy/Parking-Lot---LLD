@@ -1,6 +1,13 @@
+from __future__ import annotations
 from enum import Enum
 from parkingticket import ParkingTicket
-from datetime import datetime
+
+from typing import (
+    TYPE_CHECKING
+)
+
+if TYPE_CHECKING:
+    from datetime import datetime
 
 class PaymentType(Enum):
     CREDIT = 1
@@ -29,5 +36,12 @@ class PaymentInfo:
         self.paymentstatus = paymentstatus
 
 class Payment:
-    def makePayment(self, parkingticket: ParkingTicket, paymenttype: PaymentType) -> PaymentInfo:
-        pass
+    '''
+    main api for making payment, here it will take parking ticket, calculate total amount that has to be paid
+    '''
+    @staticmethod
+    def makePayment(parkingticket: ParkingTicket, paymenttype: PaymentType) -> PaymentInfo:
+        parkingticket.updateTotalCost()
+        total_amount = parkingticket.total_cost
+
+        # remaining logic needs to be implemented

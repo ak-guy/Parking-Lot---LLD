@@ -1,16 +1,23 @@
+from __future__ import annotations
 from typing import (
-    List
+    List,
+    TYPE_CHECKING
 )
-from parkingspace import ParkingSpace
-from parkingdisplayboard import ParkingDisplayBoard
+
+if TYPE_CHECKING:
+    from parkingspace import ParkingSpace
+    from parkingdisplayboard import ParkingDisplayBoard
 
 class ParkingFloor:
     def __init__(self, floor_id: int,
-                 isFull: bool,
-                 parkingspaces: List[ParkingSpace],
-                 parkingdisplayboard: ParkingDisplayBoard):
+                 parkingdisplayboard: ParkingDisplayBoard,
+                 parkingspaces: List[ParkingSpace] = [],
+                 isFull: bool = False):
         self.floor_id = floor_id
         self.isFull = isFull
-        self.parkingspaces = parkingspaces
-        self.parkingdisplayboard = parkingdisplayboard
+        self._parkingspaces = parkingspaces
+        self._parkingdisplayboard = parkingdisplayboard
+    
+    def addParkingSpaces(self, parkingspaces: ParkingSpace):
+        self._parkingspaces.append(parkingspaces)
     

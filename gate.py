@@ -1,7 +1,12 @@
-from accounts import ParkingAttendant
-from parkingticket import ParkingTicket
-from payment import PaymentType
-from vehicle import Vehicle
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from accounts import ParkingAttendant
+    from parkingticket import ParkingTicket
+    from payment import PaymentType
+    from vehicle import Vehicle
 
 
 class Gate:
